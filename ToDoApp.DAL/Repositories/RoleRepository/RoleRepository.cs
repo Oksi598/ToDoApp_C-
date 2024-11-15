@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
+using ToDoApp.DAL.Models.Identity;
 using ToDoApp.DAL.Repositories.RoleRepository;
 
-namespace ToDoApp.DAL.Models.Identity
+namespace ToDoApp.DAL.Repositories.RoleRepository.RoleRepository
 {
     public class RoleRepository : IRoleRepository
     {

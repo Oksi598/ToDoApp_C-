@@ -6,7 +6,7 @@ using ToDoApp.DAL;
 using ToDoApp.DAL.Data;
 using ToDoApp.DAL.Data.Initializer;
 using ToDoApp.DAL.Models.Identity;
-using ToDoApp.DAL.Repositories.RoleRepository;
+using ToDoApp.DAL.Repositories.RoleRepository.RoleRepository;
 using ToDoApp.DAL.Repositories.UserRepository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -19,6 +19,7 @@ using System;
 using System.Text;
 using ToDoApp.DAL.Repositories.TaskRepository;
 using ToDoApp.BLL.Services.TaskService;
+using ToDoApp.DAL.Repositories.RoleRepository;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,10 +37,11 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: myAllowSpecificOrigins, policy =>
     {
         policy.WithOrigins(builder.Configuration["FrontendURL"] ?? "http://localhost:3000")
-        .AllowAnyMethod()
-        .AllowAnyHeader();
+              .AllowAnyMethod()
+              .AllowAnyHeader();
     });
 });
+
 
 
 // Add identity
@@ -74,6 +76,7 @@ builder.Services.AddAuthentication(options =>
             ValidAudience = builder.Configuration["AuthSettings:audience"]
         };
     });
+
 
 // Add services
 builder.Services.AddScoped<IAccountService, AccountService>();

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using System.Linq.Expressions;
 using ToDoApp.DAL.Models.Identity;
 
-namespace ToDoApp.DAL.Repositories.RoleRepository
+namespace ToDoApp.DAL.Repositories.RoleRepository.RoleRepository
 {
     public interface IRoleRepository
     {

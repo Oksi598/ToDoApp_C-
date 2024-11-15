@@ -148,7 +148,6 @@ namespace ToDoApp.BLL.Services.UserService
 
             if (user.UserRoles.First().Role.NormalizedName != model.Role.ToUpper())
             {
-                // Видалити попередню роль та записати нову
             }
 
             return ServiceResponse.ByIdentityResult(result, "Користувач успішно оновлений");

@@ -1,9 +1,12 @@
 ﻿using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using System.Threading.Tasks;
 using ToDoApp.BLL.Services.TaskService;
 using ToDoApp.BLL.Validators;
+using ToDoApp.DAL.Models;
+using ToDoApp.DAL.Models.Identity;
 using ToDoApp.DAL.ViewModels;
 
 namespace ToDoApp.API.Controllers
@@ -21,12 +24,16 @@ namespace ToDoApp.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TaskVM>>> GetTasks([FromQuery] TaskFilterVM filter)
+        public async Task<ActionResult<IEnumerable<TaskVM>>> GetTasks(string category, int status)
         {
-            var userId = User.Claims.SingleOrDefault(c => c.Type == "id").Value;
+            var filter = new TaskFilterVM {
+                Category = category,
+                Status = status == 1
+            };
+            var userId =  User.Claims.SingleOrDefault(c=>c.Type == "id").Value;
             var tasks = await _taskService.GetTasksAsync(userId, filter);
             return Ok(tasks);
-        }
+    }
 
         [HttpGet("{taskId}")]
         public async Task<ActionResult<TaskVM>> GetTaskById(int taskId)

@@ -14,9 +14,9 @@ namespace ToDoApp.DAL.Repositories.TaskRepository
     {
         Task<IEnumerable<Task>> GetTasksAsync(string userId, TaskFilterVM filter);
         Task<Task> GetTaskByIdAsync(string userId, int taskId);
-        Task<IdentityResult> CreateTaskAsync(Task task);  // Повернення IdentityResult
-        Task<IdentityResult> UpdateTaskAsync(Task task);  // Повернення IdentityResult
-        Task<IdentityResult> DeleteTaskAsync(Task task);  // Повернення IdentityResult
+        Task<IdentityResult> CreateTaskAsync(Task task);  
+        Task<IdentityResult> UpdateTaskAsync(Task task); 
+        Task<IdentityResult> DeleteTaskAsync(Task task);  
         Task<IEnumerable<Task>> GetArchivedTasksAsync(string userId);
     }
 }

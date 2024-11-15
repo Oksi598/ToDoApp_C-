@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ToDoApp.DAL.Models.Identity;
-using ToDoApp.DAL.Repositories.RoleRepository;
+using ToDoApp.DAL.Repositories.RoleRepository.RoleRepository;
 using ToDoApp.DAL.ViewModels;
 using System.Data;
 using ToDoApp.BLL.Services;

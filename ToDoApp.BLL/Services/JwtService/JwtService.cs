@@ -84,7 +84,6 @@ namespace ToDoApp.BLL.Services.JwtService
                 claims.Add(new Claim("role", Settings.UserRole));
             }
 
-            // Creating token
             var token = new JwtSecurityToken(
                 issuer: issuer,
                 audience: audience,
